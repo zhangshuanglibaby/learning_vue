@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for='(val,index) in search' :key='index'>
+          <tr v-for='(val,index) in list' :key='index'>
             <td>{{val.bNum}}</td>
             <td>{{val.bName}}</td>
             <td>{{val.time | timeFormat('/',':')}}</td>
@@ -30,7 +30,7 @@
             </td>
           </tr>
           <!-- 当没有数据,显示提示 -->
-          <tr v-show='search.length === 0'>
+          <tr v-show='list.length === 0'>
             <td colspan="4">没有数据了,快去添加吧</td>
           </tr>
         </tbody>
@@ -68,7 +68,22 @@ export default {
       brand: {
         bNum: '',
         bName: ''
-      }
+      },
+      list: [ {
+        bNum: 1,
+        bName: '法拉利',
+        time: new Date()
+      },
+      {
+        bNum: 2,
+        bName: '劳斯莱斯',
+        time: new Date()
+      },
+      {
+        bNum: 3,
+        bName: '路虎',
+        time: new Date()
+      }]
     }
   },
   methods: {
@@ -116,13 +131,21 @@ export default {
   },
 
   // 定义计算属性
-  computed: {
-    search () {
-      // let obj = this.brandList.filter(e => {
-      //   return e.bName.indexOf(this.searchKey) !== -1
-      // })
-      // return obj
-      return this.brandList.filter(e => e.bName.indexOf(this.searchKey) !== -1)
+  // computed: {
+  //   search () {
+  //     // let obj = this.brandList.filter(e => {
+  //     //   return e.bName.indexOf(this.searchKey) !== -1
+  //     // })
+  //     // return obj
+  //     return this.brandList.filter(e => e.bName.indexOf(this.searchKey) !== -1)
+  //   }
+  // }
+  watch: {
+    'searchKey' (newV, oldV) {
+      this.list = this.brandList.filter(e => {
+        return e.bName.indexOf(newV) !== -1
+      })
+      // console.log(this.list)
     }
   }
 
