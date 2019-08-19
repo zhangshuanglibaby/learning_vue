@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 // 引入路由模块
-import router from '@/router/index.js'
+import router from '@/router/market.js'
 import App from './App.vue'
 
 // 引入单页组件
