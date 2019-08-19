@@ -89,12 +89,12 @@ export default {
   methods: {
     add () {
       this.brand.time = new Date()
-      this.brandList.push({ ...this.brand })
+      this.list.push({ ...this.brand })
       this.brand.bNum = ''
       this.brand.bName = ''
     },
     delList (index) {
-      this.brandList.splice(index, 1)
+      this.list.splice(index, 1)
     }
   },
   // 组件加载完毕（挂载）会自动调用的函数
@@ -141,7 +141,7 @@ export default {
   //   }
   // }
   watch: {
-    'searchKey' (newV, oldV) {
+    searchKey (newV) {
       this.list = this.brandList.filter(e => {
         return e.bName.indexOf(newV) !== -1
       })

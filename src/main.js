@@ -1,5 +1,8 @@
 import Vue from 'vue'
-// import App from './App.vue'
+
+// 引入路由模块
+import router from '@/router/index.js'
+import App from './App.vue'
 
 // 引入单页组件
 // import test from './components/插值表达式.vue'
@@ -23,10 +26,13 @@ import Vue from 'vue'
 // import text from './components/过度动画-使用类样式添加过度动画.vue'
 // import text from './components/axios-get.vue'
 // import text from './components/axios-post.vue'
-import text from './components/使用封装的axios.vue'
+// import text from './components/使用封装的axios.vue'
+// import text from './components/index.vue'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(text)
+  // 注入路由,让当前应用使用我们所配置好的路由
+  router,
+  render: h => h(App)
 }).$mount('#app')
