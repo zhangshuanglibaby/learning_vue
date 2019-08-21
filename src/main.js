@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 // 引入路由模块
-import router from '@/router/market.js'
+import router from '@/router/index02.js'
 import App from './App.vue'
 
 // 引入单页组件
@@ -28,7 +28,7 @@ import App from './App.vue'
 // import text from './components/axios-post.vue'
 // import text from './components/使用封装的axios.vue'
 // import text from './components/index.vue'
-
+// import text from './components/v-resource的使用.vue'
 Vue.config.productionTip = false
 
 new Vue({
